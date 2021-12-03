@@ -3,7 +3,7 @@ const URL = require('../config')
 const store = require('../store')
 
 //Sign Up
-export const signUpApi = (data) => {
+const signUpApi = (data) => {
 	return $.ajax({
 		method: 'POST',
 		url: URL.apiUrl + '/sign-up',
@@ -12,7 +12,7 @@ export const signUpApi = (data) => {
 }
 
 //Sign In
-export const signInApi = (data) => {
+const signInApi = (data) => {
 	return $.ajax({
 		method: 'POST',
 		url: URL.apiUrl + '/sign-in',
@@ -20,7 +20,7 @@ export const signInApi = (data) => {
 	})
 }
 //Sign Out
-export const signOutApi = () => {
+const signOutApi = () => {
 	return $.ajax({
 		method: 'DELETE',
 		url: URL.apiUrl + `/sign-out`,
@@ -30,6 +30,9 @@ export const signOutApi = () => {
 	})
 }
 
+// module.export = {
+// 	signUp,
+// }
 //Change Password
 // export const changePasswordApi = function (data) {
 // 	return $.ajax({
@@ -41,3 +44,10 @@ export const signOutApi = () => {
 // 		},
 // 	})
 // }
+
+module.exports = {
+	signInApi,
+	signUpApi,
+	// changePassword,
+	signOutApi,
+}

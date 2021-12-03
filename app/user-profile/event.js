@@ -1,40 +1,45 @@
 //
 const getFormFields = require('../../lib/get-form-fields')
-import { signUpApi, signInApi, signOutApi } from './api'
-
+const api = require('./api')
+const ui = require('../game/ui')
 //Sign-un
-export const signUp = (e) => {
+const signUp = (e) => {
 	e.preventDefault()
 
 	const form = e.target
 	const signUpFormData = getFormFields(form)
 	// console.log(signUpFormData)
 
-	signUpApi(signUpFormData)
-		.then((response) => console.log(response))
-		.catch((err) => console.log(err))
+	api
+		.signUpApi(signUpFormData)
+		.then(ui.signUpSuccess)
+		.catch(ui.singUpFail)
 }
 
 //Sign-in
-export const signIn = (e) => {
+const signIn = (e) => {
 	e.preventDefault()
 
 	const form = e.target
 	const signInFormData = getFormFields(form)
 	// console.log(signInFormData)
 
-	signInApi(signInFormData)
-		.then((response) => console.log(response))
-		.catch((err) => console.log(err))
+	api
+		.signInApi(signInFormData)
+		.then(ui.signInSuccess)
+		.catch(ui.signInFail)
 }
 
 //Sign-out
-export const signOut = (e) => {
+const signOut = (e) => {
 	e.preventDefault()
 
-	// console.log('signOutForm')
+	api.signOutApi().then(ui.signOutSuccess).catch(ui.signOutFail)
+}
 
-	signOutApi()
-		.then((response) => console.log(response))
-		.catch((err) => console.log(err))
+module.exports = {
+	signUp,
+	signIn,
+	// changePassword,
+	signOut,
 }

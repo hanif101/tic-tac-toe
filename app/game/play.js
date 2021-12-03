@@ -64,10 +64,10 @@ export const play = (e) => {
 	if (result.length) {
 		console.log('Win')
 		$('.row-cols-3').off('click')
-		// console.log(result)
+		console.log(result)
 		for (let win of result) {
-			win.forEach((id) => {
-				$(`#${id}`).css('color', 'red')
+			win.forEach((ix) => {
+				$(`#${ix}`).css('color', 'red')
 			})
 		}
 	}
