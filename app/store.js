@@ -1,4 +1,3 @@
-const store = {
-}
+const store = {}
 
 module.exports = store

@@ -1,21 +1,20 @@
-//
-const ui = require('./game-ui')
-const api = require('./game-api')
+// const { inputs } = require('../main/main')
+const gameui = require('./game-ui')
+const gameApi = require('./game-api')
 
-// GET game
+// GET - get all games
 const getGames = (e) => {
 	e.preventDefault()
 
-	api
+	gameApi
 		.getGamesApi()
 		.then((response) => console.log(response))
 		.catch((err) => console.log('error'))
 }
 
-// GET specific game
+// GET - get specific game
 const getSpecGame = (e) => {
 	e.preventDefault()
-	console.log('hanif')
 
 	api
 		.getSpecGameApi()
@@ -23,7 +22,27 @@ const getSpecGame = (e) => {
 		.catch((err) => console.log(err))
 }
 
+// POST - Create new game
+const createNewGame = (e) => {
+	e.preventDefault()
+
+	gameApi
+		.createNewGameApi()
+		.then(gameui.createNewGameSuccess)
+		.catch((err) => console.log(err))
+}
+
+//PATCH - Update current game
+const updateGame = () => {
+	gameApi
+		.updateGameApi()
+		.then((response) => console.log(response))
+		.catch((err) => console.log(err))
+}
+
 module.exports = {
 	getGames,
 	getSpecGame,
+	createNewGame,
+	updateGame,
 }

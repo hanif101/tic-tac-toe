@@ -23,7 +23,7 @@ const signInSuccess = (res) => {
 		<li>${res.user.email}</li>
 	</ul>
 	`
-	$('#response').append(ul)
+	$('#response').html(ul)
 	store.user = res.user
 	// console.log(store)
 }
