@@ -23,13 +23,13 @@ const playGame = (e) => {
 	} else {
 		if (turn === 0) {
 			inputs.playerO.push(id)
-			$(e.target).text('O')
+			$(e.target).html(`<p id="ptag${id}" class="ptag">O</p>`)
 			turn = 1
 			inputs.value = 'o'
 			inputs.Omoves += 1
 		} else {
 			inputs.playerX.push(id)
-			$(e.target).text('X')
+			$(e.target).html(`<p id="ptag${id}" class="ptag">X</p>`)
 			turn = 0
 			inputs.value = 'x'
 			inputs.Xmoves += 1
@@ -47,7 +47,7 @@ const playGame = (e) => {
 
 	// if any wins, print result
 	if (inputs.result.length) {
-		$('.row-cols-3').off('click')
+		$('#mainbox').removeClass('clickhandler')
 		// console.log(inputs.result)
 		for (let win of inputs.result) {
 			win.forEach((id) => {

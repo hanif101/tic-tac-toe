@@ -15,7 +15,7 @@ const createNewGameSuccess = (response) => {
 	})
 
 	clearInputs(inputs)
-	$('.row-cols-3').on('click', playGame)
+	$('#mainbox').addClass('clickhandler')
 }
 
 module.exports = {

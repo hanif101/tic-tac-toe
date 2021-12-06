@@ -8,7 +8,7 @@ const gameEvents = require('./game-profile/game-events')
 // require('./example')
 
 $(() => {
-	$('.row-cols-3').on('click', game.playGame)
+	$('.container').on('click', '.clickhandler', game.playGame)
 	// $('#sign-up-form').on('submit', userEvents.signUp)
 	$('#sign-in-form').on('submit', userEvents.signIn)
 	// $('#sign-out-form').on('submit', userEvents.signOut)
