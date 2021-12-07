@@ -12,7 +12,7 @@ const signUpSuccess = (res) => {
 }
 //
 const singUpFail = (err) => {
-	console.log(err.responseJSON.message, 'password doesnt match')
+	console.log(err.responseJSON.message, 'password doesnt matchhhhhh')
 }
 
 //Sign in

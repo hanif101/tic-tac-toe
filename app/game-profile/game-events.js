@@ -8,8 +8,8 @@ const getGames = (e) => {
 
 	gameApi
 		.getGamesApi()
-		.then((response) => console.log(response))
-		.catch((err) => console.log('error'))
+		.then(gameui.getAllGames)
+		.catch((err) => console.log(err))
 }
 
 // GET - get specific game
@@ -33,9 +33,10 @@ const createNewGame = (e) => {
 }
 
 //PATCH - Update current game
-const updateGame = () => {
+const updateGame = (e, data) => {
+	e.preventDefault()
 	gameApi
-		.updateGameApi()
+		.updateGameApi(data)
 		.then((response) => console.log(response))
 		.catch((err) => console.log(err))
 }

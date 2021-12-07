@@ -23,9 +23,9 @@ function clearInputs(inputs) {
 	inputs.playerO = []
 	inputs.playerX = []
 	inputs.result = []
-	// inputs.Xmoves = 0
-	// inputs.Omoves = 0
-	// inputs.value = null
+	inputs.Xmoves = 0
+	inputs.Omoves = 0
+	inputs.value = null
 }
 
 module.exports = {

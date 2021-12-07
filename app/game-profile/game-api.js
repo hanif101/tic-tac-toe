@@ -1,7 +1,6 @@
 const store = require('../store')
 const URL = require('../config')
 
-//
 // GET - get all game
 const getGamesApi = () => {
 	return $.ajax({
@@ -29,6 +28,7 @@ const getSpecGameApi = () => {
 
 // POST - create new game
 const createNewGameApi = () => {
+	// console.log(store)
 	return $.ajax({
 		method: 'POST',
 		url: URL.apiUrl + '/games',
@@ -41,10 +41,10 @@ const createNewGameApi = () => {
 
 // PATCH - update game
 const updateGameApi = (data) => {
-	let gameid = store.game._id
+	console.log(store)
 	return $.ajax({
 		method: 'PATCH',
-		url: URL.apiUrl + '/games/' + gameid,
+		url: URL.apiUrl + '/games/' + store.game._id,
 		headers: {
 			Authorization: 'Bearer ' + store.user.token,
 		},

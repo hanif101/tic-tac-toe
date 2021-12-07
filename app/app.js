@@ -1,20 +1,35 @@
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-const game = require('./main/main')
-// const { playBackEnd } = require('./game-back/playBack')
+//
+
+const game = require('./main/play')
+const helper = require('./main/helper')
 const userEvents = require('./user-profile/user-events')
 const gameEvents = require('./game-profile/game-events')
-// use require without a reference to ensure a file is bundled
-// require('./example')
 
 $(() => {
-	$('.container').on('click', '.clickhandler', game.playGame)
-	// $('#sign-up-form').on('submit', userEvents.signUp)
+	// sign
+	$('#sign-up-form').on('submit', userEvents.signUp)
+	$(`#modal-sign-up`).on(
+		'click',
+		helper.hideModalAfterSibmitted('signup'),
+		helper.whenSignUpSubmitted
+	)
+	// sign up
 	$('#sign-in-form').on('submit', userEvents.signIn)
-	// $('#sign-out-form').on('submit', userEvents.signOut)
-	/* ******************************************** */
-	$('#get-games').on('click', gameEvents.getGames)
+	$(`#modal-sign-in`).on(
+		'click',
+		helper.hideModalAfterSibmitted('signin'),
+		helper.whenSignInSubmitted
+	)
+
+	$('#gamediv').on('click', '.gamebox', game.playGame)
+	$('#gamediv').on('click', '#startGame', (e) => {
+		helper.startGame()
+		gameEvents.createNewGame(e)
+	})
+	$('#boardbutton').on('click', helper.boardHandler)
+	$('.nav-li-sign-out').on('click', userEvents.signOut)
+
+	$('#history').on('click', gameEvents.getGames)
 	// $('#get-spec-game').on('click', game.getSpecGame)
-	$('#create-new-game').on('click', gameEvents.createNewGame)
-	// $('#update-game').on('click', gameEvents.updateGame)
+	$('#new-game').on('click', gameEvents.createNewGame)
 })

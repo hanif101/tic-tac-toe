@@ -2,6 +2,8 @@
 const getFormFields = require('../../lib/get-form-fields')
 const userApi = require('./user-api')
 const userui = require('./user-ui')
+const { createNewGame } = require('../game-profile/game-events')
+
 //Sign-up
 const signUp = (e) => {
 	e.preventDefault()
@@ -16,7 +18,7 @@ const signUp = (e) => {
 		.catch(userui.singUpFail)
 }
 
-//Sign-in
+// Sign-in
 const signIn = (e) => {
 	e.preventDefault()
 
@@ -34,12 +36,14 @@ const signIn = (e) => {
 const signOut = (e) => {
 	e.preventDefault()
 
-	userApi.signOutApi().then(ui.signOutSuccess).catch(ui.signOutFail)
+	userApi
+		.signOutApi()
+		.then((response) => console.log(response))
+		.catch(userui.signOutFail)
 }
 
 module.exports = {
 	signUp,
 	signIn,
-	// changePassword,
 	signOut,
 }
