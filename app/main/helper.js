@@ -1,4 +1,11 @@
-const { playerChoose, playGame, singup } = require('./ui')
+const {
+	playerChoose,
+	playGame,
+	singup,
+	signOutå,
+	signOut,
+	beforeGame,
+} = require('./ui')
 // Hide Modal
 function hideModalAfterSibmitted(modalId) {
 	const Modal = require('bootstrap').Modal
@@ -21,14 +28,28 @@ function whenSignInSubmitted() {
 	$('#gamediv').html(playerChoose)
 	$('.nav-li-new-game').removeClass('d-none')
 	$('.nav-li-board').removeClass('d-none')
-	$('.nav-li-history').removeClass('d-none')
-	$('.nav-li-history').removeClass('d-none')
 	$('.nav-li-sign-in').addClass('d-none')
 	$('.nav-li-sign-out').removeClass('d-none')
+}
+function whenSignOutSubmitted() {
+	$('.nav-li-new-game').addClass('d-none')
+	$('.nav-li-board').addClass('d-none')
+	$('.nav-li-history').addClass('d-none')
+	$('#lastdiv').html('')
+	$('#history-header').addClass('d-none')
+	$('#history-header-l4g').addClass('d-none')
+	$('#gamediv').html(signOut)
+
+	setTimeout(() => {
+		$('#gamediv').html(beforeGame)
+		$('.nav-li-sign-in').removeClass('d-none')
+		$('.nav-li-sign-out').addClass('d-none')
+	}, 2000)
 }
 
 function startGame() {
 	$('#gamediv').html(playGame)
+	$('.nav-li-history').removeClass('d-none')
 }
 
 //Update Game
@@ -54,4 +75,5 @@ module.exports = {
 	updateGame,
 	startGame,
 	boardHandler,
+	whenSignOutSubmitted,
 }

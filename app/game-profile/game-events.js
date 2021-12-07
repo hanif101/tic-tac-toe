@@ -15,12 +15,13 @@ const getGames = (e) => {
 // GET - get specific game
 const getSpecGame = (e) => {
 	e.preventDefault()
-
-	api
-		.getSpecGameApi()
-		.then((response) => console.log(response))
+	gameApi
+		.getSpecGameApi(e)
+		.then(gameui.getSpecGameSuccess)
 		.catch((err) => console.log(err))
 }
+
+//PATCH - Update current game
 
 // POST - Create new game
 const createNewGame = (e) => {
@@ -28,11 +29,10 @@ const createNewGame = (e) => {
 
 	gameApi
 		.createNewGameApi()
-		.then(gameui.createNewGameSuccess)
+		.then((response) => gameui.createNewGameSuccess(e, response))
 		.catch((err) => console.log(err))
 }
 
-//PATCH - Update current game
 const updateGame = (e, data) => {
 	e.preventDefault()
 	gameApi
@@ -40,7 +40,6 @@ const updateGame = (e, data) => {
 		.then((response) => console.log(response))
 		.catch((err) => console.log(err))
 }
-
 module.exports = {
 	getGames,
 	getSpecGame,

@@ -27,9 +27,12 @@ $(() => {
 		gameEvents.createNewGame(e)
 	})
 	$('#boardbutton').on('click', helper.boardHandler)
-	$('.nav-li-sign-out').on('click', userEvents.signOut)
+	$('.nav-li-sign-out').on('click', (e) => {
+		userEvents.signOut(e)
+		helper.whenSignOutSubmitted()
+	})
 
 	$('#history').on('click', gameEvents.getGames)
-	// $('#get-spec-game').on('click', game.getSpecGame)
+	$('#lastdiv').on('click', '.clickable', gameEvents.getSpecGame)
 	$('#new-game').on('click', gameEvents.createNewGame)
 })

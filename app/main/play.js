@@ -48,7 +48,7 @@ const playGame = (e) => {
 	// if any wins, print result
 	if (inputs.result.length) {
 		$('#gamebox').removeClass('gamebox')
-		// console.log(inputs.result)
+		console.log(inputs.result, inputs)
 		for (let win of inputs.result) {
 			win.forEach((id) => {
 				$(`#${id}`).css('color', 'red')

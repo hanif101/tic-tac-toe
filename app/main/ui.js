@@ -137,10 +137,122 @@ class="
 ><h1>Sign In to continue...</h1>
 </div>
 `
+let signOut = `
+<div
+id="99signOut"
+class="
+    font-monospace
+    text-center
+    fw-bold
+"
+><h5 class="text-danger">Signin Out...</h5>
+</div>
+`
+
+const beforeGame = `
+<div
+					style="height: 400px"
+					class="
+						d-flex
+						justify-content-around
+						align-items-center
+						bg-light
+						mt-5
+						p-0
+                        w-100
+					"
+				>
+					<div class="gefore-game-text ms-5 font-monospace">
+						<h1>Play Tic-Tac-Toe</h1>
+						<h2>for FREE</h2>
+						<h4>You must sign up first!</h4>
+						<div class="d-inline">
+							<button
+								id="before-game-sign-up"
+								type="button"
+								class="btn btn-danger mt-3"
+								data-bs-toggle="modal"
+								data-bs-target="#signup"
+								style="height: 40px; width: 100px"
+							>
+								Sign up
+							</button>
+						</div>
+					</div>
+					<div class="before-game-img">
+						<img src="./public/Tic-tac-toe-animated.gif" />
+					</div>
+				</div>
+				<div class="2nd font-monospace mt-5">
+					<h4 class="mx-5"></h4>
+				</div>`
+
+function playSpecificGame(specialGame) {
+	let game = `<div
+    id="gamebox"
+    class="row row-cols-3 mt-5 d-flex align-self-center gamebox text-dark"
+    >
+    <div
+        id="1"
+        class="
+            col
+            border-top-0 border-start-0
+            text-center
+            fw-bold
+            text-dark
+        "
+    >${specialGame.cells[0].toUpperCase()}</div>
+    <div
+        id="2"
+        class="col border-top-0 text-center fw-bold text-dark"
+    >${specialGame.cells[1].toUpperCase()}</div>
+    <div
+        id="3"
+        class="col border-top-0 border-end-0 text-center fw-bold text-dark"
+    >${specialGame.cells[2].toUpperCase()}</div>
+    <div
+        id="4"
+        class="col border-start-0 text-center fw-bold text-dark"
+    >${specialGame.cells[3].toUpperCase()}</div>
+    <div id="5" class="col text-center fw-bold text-dark">${specialGame.cells[4].toUpperCase()}</div>
+    <div
+        id="6"
+        class="col border-end-0 text-center fw-bold text-dark"
+    >${specialGame.cells[5].toUpperCase()}</div>
+    <div
+        id="7"
+        class="
+            col
+            border-start-0 border-bottom-0
+            text-center
+            fw-bold text-dark
+        "
+    >${specialGame.cells[6].toUpperCase()}</div>
+    <div
+        id="8"
+        class="col box8 border-bottom-0 text-center fw-bold text-dark"
+    >${specialGame.cells[7].toUpperCase()}</div>
+    <div
+        id="9"
+        class="
+            col
+            box9
+            border-bottom-0 border-end-0
+            text-center
+            fw-bold text-dark
+        "
+    >${specialGame.cells[8].toUpperCase()}</div>
+    </div>`
+
+	return game
+}
 
 module.exports = {
 	playerChoose,
 	playGame,
 	last5games,
 	singup,
+	signOut,
+	beforeGame,
+	playSpecificGame,
 }

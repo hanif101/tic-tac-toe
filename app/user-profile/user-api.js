@@ -21,6 +21,7 @@ const signInApi = (data) => {
 }
 //Sign Out
 const signOutApi = () => {
+	console.log(store.user.token)
 	return $.ajax({
 		method: 'DELETE',
 		url: URL.apiUrl + `/sign-out`,

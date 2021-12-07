@@ -13,13 +13,13 @@ const getGamesApi = () => {
 }
 
 // GET - get specific game
-const getSpecGameApi = () => {
+const getSpecGameApi = (e) => {
 	// need game id
-	let id = '603e5ebcc7f56d0017c9818e'
+	gameid = $(e.target).parent().attr('data-gameid')
 
 	return $.ajax({
 		method: 'GET',
-		url: URL.apiUrl + '/games/' + id,
+		url: URL.apiUrl + '/games/' + gameid,
 		headers: {
 			Authorization: 'Bearer ' + store.user.token,
 		},
@@ -28,7 +28,6 @@ const getSpecGameApi = () => {
 
 // POST - create new game
 const createNewGameApi = () => {
-	// console.log(store)
 	return $.ajax({
 		method: 'POST',
 		url: URL.apiUrl + '/games',
@@ -41,7 +40,7 @@ const createNewGameApi = () => {
 
 // PATCH - update game
 const updateGameApi = (data) => {
-	console.log(store)
+	// console.log(store)
 	return $.ajax({
 		method: 'PATCH',
 		url: URL.apiUrl + '/games/' + store.game._id,

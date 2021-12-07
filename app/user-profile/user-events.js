@@ -39,7 +39,7 @@ const signOut = (e) => {
 	userApi
 		.signOutApi()
 		.then((response) => console.log(response))
-		.catch(userui.signOutFail)
+		.catch((err) => console.log(err))
 }
 
 module.exports = {
