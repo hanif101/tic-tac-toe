@@ -5,6 +5,7 @@ const {
 	signOutå,
 	signOut,
 	beforeGame,
+	choosePlayerrr,
 } = require('./ui')
 // Hide Modal
 function hideModalAfterSibmitted(modalId) {
@@ -26,8 +27,7 @@ function whenSignInSubmitted() {
 	$('#gamediv').css('display', 'block')
 	$('#gamediv').addClass('d-flex')
 	$('#gamediv').html(playerChoose)
-	$('.nav-li-new-game').removeClass('d-none')
-	$('.nav-li-board').removeClass('d-none')
+
 	$('.nav-li-sign-in').addClass('d-none')
 	$('.nav-li-sign-out').removeClass('d-none')
 }
@@ -50,6 +50,8 @@ function whenSignOutSubmitted() {
 function startGame() {
 	$('#gamediv').html(playGame)
 	$('.nav-li-history').removeClass('d-none')
+	$('.nav-li-new-game').removeClass('d-none')
+	$('.nav-li-board').removeClass('d-none')
 }
 
 //Update Game
@@ -68,6 +70,10 @@ function boardHandler() {
 		})
 }
 
+function choosePlayerr() {
+	$('#gamediv').html(choosePlayerrr)
+}
+
 module.exports = {
 	hideModalAfterSibmitted,
 	whenSignUpSubmitted,
@@ -76,4 +82,5 @@ module.exports = {
 	startGame,
 	boardHandler,
 	whenSignOutSubmitted,
+	choosePlayerr,
 }

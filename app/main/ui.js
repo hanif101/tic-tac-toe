@@ -247,6 +247,16 @@ function playSpecificGame(specialGame) {
 	return game
 }
 
+const choosePlayerrr = `<div
+					id="mainbox"
+					class="row row-cols-2 chooseplayer99 my-5"
+				>
+					<div id="1" class="col selectplayer text-center text-dark pt-2 fs-1 me-3 fw-bold">
+						X
+					</div>
+					<div id="2" class="col selectplayer text-center text-dark fs-1 pt-2 fw-bold">O</div>
+				</div>`
+
 module.exports = {
 	playerChoose,
 	playGame,
@@ -255,4 +265,5 @@ module.exports = {
 	signOut,
 	beforeGame,
 	playSpecificGame,
+	choosePlayerrr,
 }

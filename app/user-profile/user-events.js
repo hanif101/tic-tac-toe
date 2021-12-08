@@ -10,12 +10,11 @@ const signUp = (e) => {
 
 	const form = e.target
 	const signUpFormData = getFormFields(form)
-	// console.log(signUpFormData)
 
 	userApi
 		.signUpApi(signUpFormData)
 		.then(userui.signUpSuccess)
-		.catch(userui.singUpFail)
+		.catch((err) => console.log(err))
 }
 
 // Sign-in
@@ -38,7 +37,7 @@ const signOut = (e) => {
 
 	userApi
 		.signOutApi()
-		.then((response) => console.log(response))
+		.then()
 		.catch((err) => console.log(err))
 }
 

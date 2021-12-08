@@ -3,7 +3,7 @@ const { checker } = require('./checker')
 const { patchData } = require('../game-profile/game-update-data')
 const { updateGame, startGame } = require('../main/helper')
 
-var turn = 1
+var turn = null
 
 const inputs = {
 	playerO: [],
@@ -13,8 +13,16 @@ const inputs = {
 	Xmoves: 0,
 	Omoves: 0,
 }
+const setPlayer = (e) => {
+	if (e.target.id === 1) {
+		turn = 1
+	} else if (e.target.id === 0) {
+		turn = 0
+	}
+}
 
 const playGame = (e) => {
+	// console.log(e.target.id)
 	let id = parseInt(e.target.id)
 
 	if (inputs.playerX.includes(id) || inputs.playerO.includes(id)) {
@@ -48,7 +56,7 @@ const playGame = (e) => {
 	// if any wins, print result
 	if (inputs.result.length) {
 		$('#gamebox').removeClass('gamebox')
-		console.log(inputs.result, inputs)
+		// console.log(inputs.result, inputs)
 		for (let win of inputs.result) {
 			win.forEach((id) => {
 				$(`#${id}`).css('color', 'red')
@@ -63,7 +71,9 @@ const playGame = (e) => {
 		console.log('It is a tie')
 	}
 
+	// console.log(inputs)
 	let data = patchData(inputs)
+	// console.log(data)
 	updateGame(e, data)
 }
 
@@ -71,4 +81,5 @@ module.exports = {
 	playGame,
 	inputs,
 	turn,
+	setPlayer,
 }

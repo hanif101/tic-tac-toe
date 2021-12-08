@@ -6,7 +6,7 @@ const userEvents = require('./user-profile/user-events')
 const gameEvents = require('./game-profile/game-events')
 
 $(() => {
-	// sign
+	// sign in
 	$('#sign-up-form').on('submit', userEvents.signUp)
 	$(`#modal-sign-up`).on(
 		'click',
@@ -23,7 +23,11 @@ $(() => {
 
 	$('#gamediv').on('click', '.gamebox', game.playGame)
 	$('#gamediv').on('click', '#startGame', (e) => {
-		helper.startGame()
+		helper.choosePlayerr()
+	})
+	$('#gamediv').on('click', '.chooseplayer99', (e) => {
+		game.setPlayer(e)
+		helper.startGame(e)
 		gameEvents.createNewGame(e)
 	})
 	$('#boardbutton').on('click', helper.boardHandler)

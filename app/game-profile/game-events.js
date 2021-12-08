@@ -1,4 +1,3 @@
-// const { inputs } = require('../main/main')
 const gameui = require('./game-ui')
 const gameApi = require('./game-api')
 
@@ -35,10 +34,9 @@ const createNewGame = (e) => {
 
 const updateGame = (e, data) => {
 	e.preventDefault()
-	gameApi
-		.updateGameApi(data)
-		.then((response) => console.log(response))
-		.catch((err) => console.log(err))
+	gameApi.updateGameApi(data)
+	// .then((response) => console.log(response))
+	// .catch((err) => console.log(err))
 }
 module.exports = {
 	getGames,

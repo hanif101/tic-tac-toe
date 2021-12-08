@@ -1,4 +1,3 @@
-//
 const URL = require('../config')
 const store = require('../store')
 
