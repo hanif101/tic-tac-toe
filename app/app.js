@@ -6,14 +6,14 @@ const userEvents = require('./user-profile/user-events')
 const gameEvents = require('./game-profile/game-events')
 
 $(() => {
-	// sign in
+	// sign up
 	$('#sign-up-form').on('submit', userEvents.signUp)
 	$(`#modal-sign-up`).on(
 		'click',
 		helper.hideModalAfterSibmitted('signup'),
 		helper.whenSignUpSubmitted
 	)
-	// sign up
+	// sign in
 	$('#sign-in-form').on('submit', userEvents.signIn)
 	$(`#modal-sign-in`).on(
 		'click',
