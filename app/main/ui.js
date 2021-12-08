@@ -17,7 +17,7 @@ let playerChoose = `
 // ********************************************************
 const playGame = `<div
 id="gamebox"
-class="row row-cols-3 mt-5 d-flex align-self-center gamebox"
+class="row row-cols-3 mt-1 d-flex align-self-center gamebox"
 >
 <div
     id="1"
@@ -157,12 +157,11 @@ const beforeGame = `
 						justify-content-around
 						align-items-center
 						bg-light
-						mt-5
 						p-0
                         w-100
 					"
 				>
-					<div class="gefore-game-text ms-5 font-monospace">
+					<div class="gefore-game-text  font-monospace">
 						<h1>Play Tic-Tac-Toe</h1>
 						<h2>for FREE</h2>
 						<h4>You must sign up first!</h4>
@@ -183,7 +182,7 @@ const beforeGame = `
 						<img src="./public/Tic-tac-toe-animated.gif" />
 					</div>
 				</div>
-				<div class="2nd font-monospace mt-5">
+				<div class="2nd font-monospace ">
 					<h4 class="mx-5"></h4>
 				</div>`
 
