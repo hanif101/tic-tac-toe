@@ -32,8 +32,8 @@ I tried to create a tree structure at the fist to easy to control whole project 
 - _main/checker_ holds 8 win conditions and requires 2 arguments and returns the result of winning condition.
 - _game-profile/game-update-data_ whole js file returns patch data as a required structure.
 
-![wireframes](./public/1.jpg)
-![wireframes](./public/2.jpg)
+![wireframes](./public/1.JPG)
+![wireframes](./public/2.JPG)
 
 ## _User Stories_
 
