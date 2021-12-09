@@ -28,7 +28,18 @@ function clearInputs(inputs) {
 	inputs.value = null
 }
 
+function checkWhoWon(obj) {
+	if (obj.result) {
+		if (obj.value === 'o') {
+			return 'X'
+		} else if (obj.value === 'x') {
+			return 'O'
+		}
+	}
+}
+
 module.exports = {
 	checker,
 	clearInputs,
+	checkWhoWon,
 }

@@ -198,7 +198,7 @@ function playSpecificGame(specialGame) {
             border-top-0 border-start-0
             text-center
             fw-bold
-            text-dark
+
         "
     >${specialGame.cells[0].toUpperCase()}</div>
     <div
@@ -256,6 +256,14 @@ const choosePlayerrr = `<div
 					<div id="0" class="col selectplayer text-center text-dark fs-1 pt-2 fw-bold">O</div>
 				</div>`
 
+const winner = (val) => {
+	return `<div id="winner" class="font-monospace bg-warning text-center mt-4 pt-2" style= "width: 270px">
+<h4 class="text-center">${val.toUpperCase()}!</h4>
+
+</div>
+`
+}
+
 module.exports = {
 	playerChoose,
 	playGame,
@@ -265,4 +273,5 @@ module.exports = {
 	beforeGame,
 	playSpecificGame,
 	choosePlayerrr,
+	winner,
 }

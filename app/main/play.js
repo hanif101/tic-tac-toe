@@ -2,7 +2,7 @@
 const { checker } = require('./checker')
 const { patchData } = require('../game-profile/game-update-data')
 const { updateGame, startGame } = require('../main/helper')
-const helper = require('./helper')
+const { winner } = require('./ui')
 let turn
 const inputs = {
 	playerO: [],
@@ -48,20 +48,17 @@ const playGame = (e) => {
 
 	// if any wins, print result
 	if (inputs.result.length) {
+		// console.log(inputs)
+
+		$('#winner-box').html(winner(`player ${inputs.value} won!`))
 		$('#gamebox').removeClass('gamebox')
-		// console.log(inputs.result, inputs)
-		for (let win of inputs.result) {
-			win.forEach((id) => {
-				$(`#${id}`).css('color', 'red')
-			})
-		}
 	}
 	// if its tie
 	else if (
 		(inputs.playerX.length === 5 || inputs.playerO.length === 5) &&
 		inputs.result.length === 0
 	) {
-		console.log('It is a tie')
+		$('#winner-box').html(winner('Its tie'))
 	}
 
 	// console.log(inputs)

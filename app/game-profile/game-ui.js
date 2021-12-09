@@ -18,6 +18,7 @@ const createNewGameSuccess = (e, response) => {
 
 	clearInputs(inputs)
 	$('#gamebox').addClass('gamebox')
+	$('#winner-box').html('')
 
 	// console.log(inputs)
 }
@@ -64,10 +65,7 @@ const getAllGames = (response) => {
 }
 
 const getSpecGameSuccess = (response) => {
-	console.log(inputs)
-	console.log(response)
 	store.game = response.game
-	clearInputs(inputs)
 	response.game.cells.forEach((cell, index) => {
 		if (cell === 'x') {
 			inputs.playerX.push(index + 1)
@@ -82,7 +80,8 @@ const getSpecGameSuccess = (response) => {
 
 	let div = ui.playSpecificGame(response.game)
 	$('#gamediv').html(div)
-	console.log(inputs)
+	$('#winner-box').html('')
+	// console.log(inputs)
 }
 module.exports = {
 	createNewGameSuccess,
