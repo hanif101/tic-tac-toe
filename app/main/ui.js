@@ -253,7 +253,7 @@ const choosePlayerrr = `<div
 					<div id="1" class="col selectplayer text-center text-dark pt-2 fs-1 me-3 fw-bold">
 						X
 					</div>
-					<div id="2" class="col selectplayer text-center text-dark fs-1 pt-2 fw-bold">O</div>
+					<div id="0" class="col selectplayer text-center text-dark fs-1 pt-2 fw-bold">O</div>
 				</div>`
 
 module.exports = {

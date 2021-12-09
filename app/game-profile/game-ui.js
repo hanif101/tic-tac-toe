@@ -7,6 +7,7 @@ const ui = require('../main/ui')
 // Create new game
 const createNewGameSuccess = (e, response) => {
 	// console.log(inputs)
+
 	store.game = response.game
 	let cells = response.game.cells
 
@@ -43,7 +44,7 @@ const getAllGames = (response) => {
 			$('#lastdiv').append(div)
 		} else {
 			let div = `
-				<div id="last" data-gameid=${game._id} class="row row-cols-3 clickable text-center">
+				<div id="last" data-gameid=${game._id} class="row row-cols-3 clickable m-0 text-center">
 				<div id = "1" class="one">${game.cells[0]}</div>
 				<div id = "2" class="one">${game.cells[1]}</div>
 				<div id = "3" class="one">${game.cells[2]}</div>
@@ -63,7 +64,10 @@ const getAllGames = (response) => {
 }
 
 const getSpecGameSuccess = (response) => {
+	console.log(inputs)
+	console.log(response)
 	store.game = response.game
+	clearInputs(inputs)
 	response.game.cells.forEach((cell, index) => {
 		if (cell === 'x') {
 			inputs.playerX.push(index + 1)
@@ -78,6 +82,7 @@ const getSpecGameSuccess = (response) => {
 
 	let div = ui.playSpecificGame(response.game)
 	$('#gamediv').html(div)
+	console.log(inputs)
 }
 module.exports = {
 	createNewGameSuccess,

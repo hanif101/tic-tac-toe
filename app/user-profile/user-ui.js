@@ -1,48 +1,49 @@
 const store = require('../store')
+const Modal = require('bootstrap').Modal
+const signInModal = new Modal($('#signin'))
+const signUpModal = new Modal($('#signup'))
+const helper = require('../main/helper')
+const { clearInputs } = require('../main/checker')
+const { inputs } = require('../main/play')
 
 //Sign up
 const signUpSuccess = (res) => {
-	console.log(res)
-	let ul = `
-	<ul data-userId="${res.user._id}"=>
-		<li>${res.user.email}</li>
-	</ul>
-	`
-	$('#response').append(ul)
+	signUpModal.hide()
+	helper.whenSignUpSubmitted()
 }
-//
-const singUpFail = (err) => {
-	console.log(err.responseJSON.message, 'password doesnt matchhhhhh')
+const signUpFail = (err) => {
+	$('#sign-up-error').removeClass('d-none')
+	setTimeout(() => {
+		$('#sign-up-error').addClass('d-none')
+	}, 2000)
 }
 
 //Sign in
 const signInSuccess = (res) => {
-	// console.log(response)
-	let ul = `
-	<ul data-userId="${res.user._id}"=>
-		<li>${res.user.email}</li>
-	</ul>
-	`
-	$('#response').html(ul)
+	signInModal.hide()
+	helper.whenSignInSubmitted()
+
 	store.user = res.user
-	// console.log(store)
 }
-//
 const signInFail = (err) => {
-	console.log(err)
+	$('#sign-in-error').removeClass('d-none')
+	setTimeout(() => {
+		$('#sign-in-error').addClass('d-none')
+	}, 2000)
 }
 
 // Sign out
-const signOutSuccess = (response) => {
-	console.log(response)
+const signOutSuccess = () => {
+	clearInputs(inputs)
+	console.log('sign out successfull')
 }
 
 const signOutFail = (err) => {
-	console.log(err.responseJSON.message)
+	console.log('sign out error:::', err.responseJSON.message)
 }
 module.exports = {
 	signUpSuccess,
-	singUpFail,
+	signUpFail,
 	signInSuccess,
 	signInFail,
 	signOutSuccess,

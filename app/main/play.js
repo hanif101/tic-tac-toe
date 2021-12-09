@@ -2,9 +2,8 @@
 const { checker } = require('./checker')
 const { patchData } = require('../game-profile/game-update-data')
 const { updateGame, startGame } = require('../main/helper')
-
-var turn = null
-
+const helper = require('./helper')
+let turn
 const inputs = {
 	playerO: [],
 	playerX: [],
@@ -13,21 +12,15 @@ const inputs = {
 	Xmoves: 0,
 	Omoves: 0,
 }
-const setPlayer = (e) => {
-	if (e.target.id === 1) {
-		turn = 1
-	} else if (e.target.id === 0) {
-		turn = 0
-	}
+function setPlayer(num) {
+	turn = parseInt(num)
 }
 
 const playGame = (e) => {
-	// console.log(e.target.id)
 	let id = parseInt(e.target.id)
 
 	if (inputs.playerX.includes(id) || inputs.playerO.includes(id)) {
-		// throw new Error
-		return
+		// console.log(err)
 	} else {
 		if (turn === 0) {
 			inputs.playerO.push(id)
@@ -73,13 +66,11 @@ const playGame = (e) => {
 
 	// console.log(inputs)
 	let data = patchData(inputs)
-	// console.log(data)
 	updateGame(e, data)
 }
 
 module.exports = {
 	playGame,
 	inputs,
-	turn,
 	setPlayer,
 }

@@ -7,14 +7,6 @@ const {
 	beforeGame,
 	choosePlayerrr,
 } = require('./ui')
-// Hide Modal
-function hideModalAfterSibmitted(modalId) {
-	const Modal = require('bootstrap').Modal
-	const signInModal = new Modal($(`#${modalId}`))
-	$(`#${modalId} button[type="submit"]`).on('click', () =>
-		signInModal.hide()
-	)
-}
 
 function whenSignUpSubmitted() {
 	$('#before-game').hide()
@@ -26,6 +18,7 @@ function whenSignInSubmitted() {
 	$('#before-game').hide()
 	$('#gamediv').css('display', 'block')
 	$('#gamediv').addClass('d-flex')
+	$('#signinError').addClass('d-none')
 	$('#gamediv').html(playerChoose)
 
 	$('.nav-li-sign-in').addClass('d-none')
@@ -47,7 +40,7 @@ function whenSignOutSubmitted() {
 	}, 2000)
 }
 
-function startGame() {
+function startGame(e) {
 	$('#gamediv').html(playGame)
 	$('.nav-li-history').removeClass('d-none')
 	$('.nav-li-new-game').removeClass('d-none')
@@ -75,7 +68,6 @@ function choosePlayerr() {
 }
 
 module.exports = {
-	hideModalAfterSibmitted,
 	whenSignUpSubmitted,
 	whenSignInSubmitted,
 	updateGame,

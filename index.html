@@ -262,7 +262,10 @@
 											id="password"
 											name="credentials[password]"
 										/>
-										<span id="passwordHelpInline" class="form-text">
+										<span
+											id="passwordHelpInline"
+											class="form-text text-muted"
+										>
 											Must be 8-20 characters long, 1 special char.
 										</span>
 									</div>
@@ -278,10 +281,16 @@
 										/>
 										<span
 											id="passwordHelpInline"
-											class="form-text text-danger"
+											class="form-text text-muted"
 										>
 											Please make sure passwords match, same.
 										</span>
+									</div>
+									<div
+										id="sign-up-error"
+										class="text-danger d-none mb-3 px-2 bg-warning"
+									>
+										All fields *required and make sure pass`s matches!
 									</div>
 									<button
 										id="modal-sign-up"
@@ -372,14 +381,14 @@
 										/>
 									</div>
 									<div
-										id="signinError"
-										class="text-danger mb-3 d-none"
+										id="sign-in-error"
+										class="text-danger mb-3 px-2 bg-warning d-none"
 									>
 										Email or Password are incorrect
 									</div>
 									<button
 										id="modal-sign-in"
-										type="submit"
+										type="submit "
 										class="btn btn-primary"
 									>
 										Sign in
@@ -439,7 +448,8 @@
 					justify-content-center
 					align-items-center
 					w-100
-					mt-5
+					mt-3
+					mb-3
 				"
 			></div>
 
