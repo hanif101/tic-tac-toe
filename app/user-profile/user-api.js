@@ -2,7 +2,7 @@ const URL = require('../config')
 const store = require('../store')
 
 //Sign Up
-const signUpApi = (data) => {
+const signupAPI = (data) => {
 	return $.ajax({
 		method: 'POST',
 		url: URL.apiUrl + '/sign-up',
@@ -11,7 +11,7 @@ const signUpApi = (data) => {
 }
 
 //Sign In
-const signInApi = (data) => {
+const signinAPI = (data) => {
 	return $.ajax({
 		method: 'POST',
 		url: URL.apiUrl + '/sign-in',
@@ -19,7 +19,7 @@ const signInApi = (data) => {
 	})
 }
 //Sign Out
-const signOutApi = () => {
+const signoutAPI = () => {
 	return $.ajax({
 		method: 'DELETE',
 		url: URL.apiUrl + `/sign-out`,
@@ -29,21 +29,8 @@ const signOutApi = () => {
 	})
 }
 
-//Change Password
-// export const changePasswordApi = function (data) {
-// 	return $.ajax({
-// 		method: 'PATCH',
-// 		url: URL + '/change-password',
-// 		data,
-// 		headers: {
-// 			Authorization: 'Bearer ' + store.user.token,
-// 		},
-// 	})
-// }
-
 module.exports = {
-	signInApi,
-	signUpApi,
-	// changePassword,
-	signOutApi,
+	signinAPI,
+	signupAPI,
+	signoutAPI,
 }

@@ -1,51 +1,45 @@
 const store = require('../store')
 const Modal = require('bootstrap').Modal
-const signInModal = new Modal($('#signin'))
-const signUpModal = new Modal($('#signup'))
-const helper = require('../main/helper')
-const { clearInputs } = require('../main/checker')
-const { inputs } = require('../main/play')
+const signINmodal = new Modal($('#sign-in-modal'))
+const signUPmodal = new Modal($('#sign-up-modal'))
+const uiHelper = require('../helpers/ui-helper')
+const { inputs, clearInputs } = require('../helpers/playstore')
 
 //Sign up
-const signUpSuccess = (res) => {
-	signUpModal.hide()
-	helper.whenSignUpSubmitted()
+const signupSuccess = (res) => {
+	signUPmodal.hide()
+	uiHelper.whenSIGNUPsuccess(res.user.email)
 }
-const signUpFail = (err) => {
-	$('#sign-up-error').removeClass('d-none')
-	setTimeout(() => {
-		$('#sign-up-error').addClass('d-none')
-	}, 2000)
+const signupFail = (err) => {
+	uiHelper.whenSIGNUPfail()
 }
 
 //Sign in
-const signInSuccess = (res) => {
-	signInModal.hide()
-	helper.whenSignInSubmitted()
-
+const signinSuccess = (res) => {
+	signINmodal.hide()
+	uiHelper.whenSIGNINsuccess(res.user.email)
 	store.user = res.user
 }
-const signInFail = (err) => {
-	$('#sign-in-error').removeClass('d-none')
-	setTimeout(() => {
-		$('#sign-in-error').addClass('d-none')
-	}, 2000)
+const signinFail = (err) => {
+	uiHelper.whenSIGNINfail()
 }
 
-// Sign out
-const signOutSuccess = () => {
+// // Sign out
+const signoutSuccess = () => {
 	clearInputs(inputs)
 	console.log('sign out successfull')
+	uiHelper.whenSIGNOUTsuccess()
 }
 
-const signOutFail = (err) => {
+const signoutFail = (err) => {
 	console.log('sign out error:::', err.responseJSON.message)
+	uiHelper.whenSIGNOUTfail()
 }
 module.exports = {
-	signUpSuccess,
-	signUpFail,
-	signInSuccess,
-	signInFail,
-	signOutSuccess,
-	signOutFail,
+	signupSuccess,
+	signupFail,
+	signinSuccess,
+	signinFail,
+	signoutSuccess,
+	signoutFail,
 }

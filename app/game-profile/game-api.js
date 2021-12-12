@@ -2,32 +2,32 @@ const store = require('../store')
 const URL = require('../config')
 
 // GET - get all game
-const getGamesApi = () => {
-	return $.ajax({
-		method: 'GET',
-		url: URL.apiUrl + '/games',
-		headers: {
-			Authorization: 'Bearer ' + store.user.token,
-		},
-	})
-}
+// const getGamesApi = () => {
+// 	return $.ajax({
+// 		method: 'GET',
+// 		url: URL.apiUrl + '/games',
+// 		headers: {
+// 			Authorization: 'Bearer ' + store.user.token,
+// 		},
+// 	})
+// }
 
-// GET - get specific game
-const getSpecGameApi = (e) => {
-	// need game id
-	gameid = $(e.target).parent().attr('data-gameid')
+// // GET - get specific game
+// const getSpecGameApi = (e) => {
+// 	// need game id
+// 	gameid = $(e.target).parent().attr('data-gameid')
 
-	return $.ajax({
-		method: 'GET',
-		url: URL.apiUrl + '/games/' + gameid,
-		headers: {
-			Authorization: 'Bearer ' + store.user.token,
-		},
-	})
-}
+// 	return $.ajax({
+// 		method: 'GET',
+// 		url: URL.apiUrl + '/games/' + gameid,
+// 		headers: {
+// 			Authorization: 'Bearer ' + store.user.token,
+// 		},
+// 	})
+// }
 
-// POST - create new game
-const createNewGameApi = () => {
+// // POST - create new game
+const createAPI = () => {
 	return $.ajax({
 		method: 'POST',
 		url: URL.apiUrl + '/games',
@@ -39,8 +39,7 @@ const createNewGameApi = () => {
 }
 
 // PATCH - update game
-const updateGameApi = (data) => {
-	// console.log(store)
+const updateAPI = (data) => {
 	return $.ajax({
 		method: 'PATCH',
 		url: URL.apiUrl + '/games/' + store.game._id,
@@ -52,8 +51,8 @@ const updateGameApi = (data) => {
 }
 
 module.exports = {
-	getGamesApi,
-	getSpecGameApi,
-	createNewGameApi,
-	updateGameApi,
+	// getGamesApi,
+	// getSpecGameApi,
+	createAPI,
+	updateAPI,
 }

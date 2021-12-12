@@ -1,108 +1,75 @@
 @import '~bootstrap/scss/bootstrap';
+
 body {
-	background-color: #ececec;
+	background: rgb(214, 214, 214);
 }
-#state {
-	background-color: #ffffff;
-	box-shadow: 0 0 100px 1px rgba(255, 255, 255, 0.2);
-	border-radius: 10px;
-	height: 1000px;
-	margin-top: 7px;
-}
-#navbox,
-.navbar {
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-}
-.navbar-header {
-	background: rgb(255, 99, 99);
-}
-// GAME  BOX****************************************************************
 
 .col {
-	height: 80px;
-	width: 90px;
-	border: 3px solid rgb(0, 0, 0);
-	box-shadow: 10px 10px 20px 20px rgba(227, 227, 227, 0.4);
-	color: black;
-}
-div .col {
-	font-size: 50px;
-	margin: 0;
-	padding: 0;
-}
-
-#gamebox img {
-	box-shadow: 0 0 200px 20px rgba(255, 255, 255, 0.4);
-	width: 190px;
-	height: 190px;
-}
-
-// MODEL BOX ******************************************************************
-#close {
-	float: right;
-	background-color: white;
-	margin-top: 8px;
-}
-
-// BEFORE GAME *****************************************************************
-
-.before-game-img {
-	box-shadow: 0 0 200px 100px rgba(95, 95, 95, 0.2);
-}
-
-#gamebox {
-	width: 270px;
 	box-sizing: border-box;
+	border: 3px solid rgb(56, 53, 53);
+	height: 120px;
+	width: 120px;
+	line-height: 110px;
+	font-size: 110px;
+	font-weight: 300;
+	cursor: pointer;
 }
 
-#gamediv {
-	// display: none;
-}
-.special {
-	height: 80px;
-	width: 90px;
-	border: 2px solid rgb(0, 0, 0);
-	box-shadow: inset 2px 2px 20px 0px rgba(0, 0, 0, 0.34);
-	border-radius: 10px;
-	background: rgb(255, 255, 255);
+#game-box {
+	width: 365px;
+	margin-top: 20px;
 }
 
-#last .one {
+#winner-box {
+	margin-top: 40px;
+	margin-bottom: 1px;
+}
+
+#winner-box h4 {
+	width: 365px;
 	text-align: center;
-	height: 60px;
-	width: 60px;
-	border: 2px solid black;
-	box-shadow: inset 2px 2px 20px 0px rgba(195, 195, 195, 0.34);
-	font-size: 45px;
-	font-weight: bold;
-}
-#last {
-	width: 190px;
-	margin-top: 10px;
+	letter-spacing: 5px;
+	font-family: monospace;
+	line-height: 35px;
 }
 
-#last {
+#sign-up-form input,
+#sign-in-form input {
+	width: 90%;
+	height: 25px;
+	padding: 0px;
+}
+#modal {
+	width: 250px;
+}
+
+#user-email-span-nav {
+	background-color: rgb(195, 211, 205);
+	padding: 0 5px;
+	text-align: center;
+	height: 25px;
+	border-radius: 3px;
+}
+
+#new-game .new-game {
+	width: 122px;
 	margin-top: 50px;
-
-	box-shadow: 2px 2px 20px 0px rgba(255, 255, 255, 0.34);
-	font-size: 45px;
-	font-weight: bold;
+	word-spacing: 5px;
+	letter-spacing: 2px;
 }
 
-.selectplayer {
-	height: 80px;
-	width: 90px;
-	border: 2px solid rgb(0, 0, 0);
-	box-shadow: inset 2px 2px 20px 0px rgba(0, 0, 0, 0.34);
-	border-radius: 10px;
-	background: rgb(255, 255, 255);
+#player .choosebox {
+	cursor: pointer;
+	background: #dbdbdb;
+	margin: 0 10px;
 }
-#lastdiv {
-	height: 200px;
+::-webkit-input-placeholder {
+	transition: 0.2s ease-in-out;
+	opacity: 0.7;
+	padding-left: 5px;
+	font-family: 'Roboto Mono', monospace;
 }
 
-#gameboxes {
-	width: 270px;
-	box-sizing: border-box;
+:focus::-webkit-input-placeholder {
+	opacity: 0.2;
 }

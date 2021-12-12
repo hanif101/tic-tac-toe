@@ -1,46 +1,75 @@
-const gameui = require('./game-ui')
-const gameApi = require('./game-api')
+const gameUI = require('./game-ui')
+const gameAUTH = require('./game-api')
+const {
+	inputs,
+	checker,
+	play,
+	indexValueOver,
+	clearInputs,
+} = require('../helpers/playstore')
+const helper = require('../helpers/ui-helper')
 
-// GET - get all games
-const getGames = (e) => {
-	e.preventDefault()
+// GET
+// const allGames = (e) => {
+// 	e.preventDefault()
 
-	gameApi
-		.getGamesApi()
-		.then(gameui.getAllGames)
-		.catch((err) => console.log(err))
-}
+// 	gameApi
+// 		.getGamesApi()
+// 		.then(gameUI.getALLGames)
+// 		.catch((err) => console.log(err))
+// }
 
-// GET - get specific game
-const getSpecGame = (e) => {
-	e.preventDefault()
-	gameApi
-		.getSpecGameApi(e)
-		.then(gameui.getSpecGameSuccess)
-		.catch((err) => console.log(err))
-}
-
-//PATCH - Update current game
+// // GET - get specific game
+// // const getSpecGame = (e) => {
+// // 	e.preventDefault()
+// // 	gameApi
+// // 		.getSpecGameApi(e)
+// // 		.then(gameui.getSpecGameSuccess)
+// // 		.catch((err) => console.log(err))
+// // }
 
 // POST - Create new game
-const createNewGame = (e) => {
+const create = (e) => {
 	e.preventDefault()
 
-	gameApi
-		.createNewGameApi()
-		.then((response) => gameui.createNewGameSuccess(e, response))
-		.catch((err) => console.log(err))
+	gameAUTH
+		.createAPI()
+		.then(gameUI.createSuccess)
+		.catch(gameUI.createFail)
 }
 
-const updateGame = (e, data) => {
+const update = (e, data) => {
 	e.preventDefault()
-	gameApi.updateGameApi(data)
-	// .then((response) => console.log(response))
-	// .catch((err) => console.log(err))
+	gameAUTH
+		.updateAPI(data)
+		.then((res) => console.log('game update success', res))
+		.catch((err) => console.log('game update error', res))
+}
+
+// **************************************************************************************
+const choosePlayer = (e) => {
+	inputs.turn = Number(e.target.id)
+	helper.loadGameHtml()
+	create(e)
+}
+
+const gameStart = (e) => {
+	// console.log(inputs)
+	play(e, inputs, checker, helper)
+	update(e, indexValueOver(inputs))
+}
+
+const resetBoard = (e) => {
+	helper.resetBoard()
+	clearInputs(inputs)
+	create(e)
 }
 module.exports = {
-	getGames,
-	getSpecGame,
-	createNewGame,
-	updateGame,
+	// getGames,
+	// getSpecGame,
+	create,
+	// updateGame,
+	gameStart,
+	choosePlayer,
+	resetBoard,
 }

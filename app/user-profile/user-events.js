@@ -1,45 +1,44 @@
 const getFormFields = require('../../lib/get-form-fields')
-const userApi = require('./user-api')
-const userui = require('./user-ui')
+const userAUTH = require('./user-api')
+const userUI = require('./user-ui')
 
-//Sign-up
-const signUp = (e) => {
+//sign-up
+const signUP = (e) => {
 	e.preventDefault()
-
 	const form = e.target
-	const signUpFormData = getFormFields(form)
+	const signupFormData = getFormFields(form)
 
-	userApi
-		.signUpApi(signUpFormData)
-		.then(userui.signUpSuccess)
-		.catch(userui.signUpFail)
+	userAUTH
+		.signupAPI(signupFormData)
+		.then(userUI.signupSuccess)
+		.catch(userUI.signupFail)
 }
 
 // Sign-in
-const signIn = (e) => {
+const signIN = (e) => {
 	e.preventDefault()
 
 	const form = e.target
 	const signInFormData = getFormFields(form)
 
-	userApi
-		.signInApi(signInFormData)
-		.then(userui.signInSuccess)
-		.catch(userui.signInFail)
+	userAUTH
+		.signinAPI(signInFormData)
+		.then(userUI.signinSuccess)
+		.catch(userUI.signinFail)
 }
 
 //Sign-out
-const signOut = (e) => {
+const signOUT = (e) => {
 	e.preventDefault()
 
-	userApi
-		.signOutApi()
-		.then(userui.signOutSuccess)
-		.catch(userui.signOutFail)
+	userAUTH
+		.signoutAPI()
+		.then(userUI.signoutSuccess)
+		.catch(userUI.signoutFail)
 }
 
 module.exports = {
-	signUp,
-	signIn,
-	signOut,
+	signUP,
+	signIN,
+	signOUT,
 }

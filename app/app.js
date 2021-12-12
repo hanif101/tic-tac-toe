@@ -1,33 +1,15 @@
-//
-
-const game = require('./main/play')
-const helper = require('./main/helper')
-const userEvents = require('./user-profile/user-events')
-const gameEvents = require('./game-profile/game-events')
-
+const user = require('./user-profile/user-events')
+const game = require('./game-profile/game-events')
+const store = require('./store')
 $(() => {
 	// sign up
-	$('#sign-up-form').on('submit', userEvents.signUp)
-
+	$('#sign-up-form').on('submit', user.signUP)
 	// sign in
-	$('#sign-in-form').on('submit', userEvents.signIn)
-
-	$('#gamediv').on('click', '.gamebox', game.playGame)
-	$('#gamediv').on('click', '#startGame', (e) => {
-		helper.choosePlayerr()
-	})
-	$('#gamediv').on('click', '.chooseplayer99', (e) => {
-		helper.startGame(e)
-		gameEvents.createNewGame(e)
-		game.setPlayer(e.target.id)
-	})
-	$('#boardbutton').on('click', helper.boardHandler)
-	$('.nav-li-sign-out').on('click', (e) => {
-		userEvents.signOut(e)
-		helper.whenSignOutSubmitted()
-	})
-
-	$('#history').on('click', gameEvents.getGames)
-	$('#lastdiv').on('click', '.clickable', gameEvents.getSpecGame)
-	$('#new-game').on('click', gameEvents.createNewGame)
+	$('#sign-in-form').on('submit', user.signIN)
+	//sign out
+	$('#sign-out-nav-button').on('click', user.signOUT)
+	$('#main').on('click', '.game-box', game.gameStart)
+	$('#choose').on('click', '.choosebox', game.choosePlayer)
+	// $('#history').on('click', gameEvents.getGames)
+	$('#new-game-button').on('click', game.resetBoard)
 })
