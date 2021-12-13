@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tic Tac Toe</title>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+
+		<!-- Do not add `link` tags-->
+		<link
+			rel="shortcut icon"
+			type="image/x-icon"
+			href="favicon.ico"
+		/>
+
+		<!-- Do not add `script` tags-->
+		<script
+			src="public/vendor.js"
+			type="text/javascript"
+			charset="utf-8"
+			defer
+		></script>
+		<script
+			src="public/application.js"
+			type="text/javascript"
+			charset="utf-8"
+			defer
+		></script>
+	</head>
+	<body>
+		<!-- NAVBAR **************************************************** -->
+		<div>
+			<nav
+				class="navbar bg-secondary pt-0"
+				style="height: 35px; padding-bottom: 2rem"
+			>
+				<span class="navbar-brand mb-0 ms-2 h4">Tic Tac Toe</span>
+				<button
+					type="button"
+					id="sign-up-nav-button"
+					class="btn btn-danger p-0 font-monospace"
+					data-bs-toggle="modal"
+					data-bs-target="#sign-up-modal"
+					style="
+						height: 25px;
+						width: 65px;
+						font-size: 75%;
+						align-self: right;
+					"
+				>
+					sign up
+				</button>
+				<span id="user-email-span-nav" class="d-none">kklk</span>
+				<button
+					type="button"
+					id="sign-in-nav-button"
+					class="btn btn-success me-2 p-0 font-monospace"
+					data-bs-toggle="modal"
+					data-bs-target="#sign-in-modal"
+					style="height: 25px; width: 65px; font-size: 75%"
+				>
+					sign in
+				</button>
+				<button
+					id="sign-out-nav-button"
+					class="btn btn-danger me-2 p-0 font-monospace"
+					style="
+						height: 25px;
+						width: 65px;
+						font-size: 75%;
+						display: none;
+					"
+				>
+					sign out
+				</button>
+			</nav>
+		</div>
+		<div
+			id="winner-box"
+			class="
+				d-flex
+				flex-column
+				justify-content-center
+				align-items-center
+			"
+		></div>
+		<div id="choose"></div>
+		<div
+			id="main"
+			class="
+				container
+				d-flex
+				flex-column
+				justify-content-center
+				align-items-center
+			"
+		>
+			<div id="greeting-box" class="font-monospace">
+				<h4>Welcome!</h4>
+				<h6 class="text-muted">if no account ...</h6>
+				<h3>Sign UP to continue!</h3>
+			</div>
+		</div>
+		<div
+			id="new-game"
+			class="
+				d-flex
+				flex-column
+				justify-content-center
+				align-items-center
+			"
+		>
+			<button
+				id="new-game-button"
+				class="btn btn-secondary new-game"
+				style="display: none"
+			>
+				new game
+			</button>
+		</div>
+		<!-- ******************* MODAL *************************** -->
+		<div id="modal">
+			<!-- Button trigger modal -->
+			<!-- Modal  SIGN UP-->
+			<div
+				class="modal fade"
+				id="sign-up-modal"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="staticBackdropLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog" id="modal">
+					<div class="modal-content">
+						<div class="modal-header bg-secondary p-1">
+							<h4
+								class="modal-title text-white ms-2"
+								id="staticBackdropLabel"
+							>
+								Sign up
+							</h4>
+							<button
+								type="button"
+								class="btn-close btn-danger bg-danger me-1"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+
+						<form
+							id="sign-up-form"
+							class="
+								form-control
+								d-flex
+								flex-column
+								sign-up-form
+								justify-content-center
+								align-items-center
+								mx-0
+								px-0
+							"
+						>
+							<input
+								type="email"
+								name="credentials[email]"
+								placeholder=" *Enter email"
+								class="form-control mx-2 my-2"
+								id="email"
+							/>
+
+							<input
+								type="password"
+								class="form-control mx-2 my-2"
+								id="password"
+								placeholder=" *Enter Password"
+								name="credentials[password]"
+							/>
+
+							<input
+								id="re-password"
+								type="password"
+								class="form-control mx-3 my-2"
+								placeholder=" *Enter re-Password"
+								id="re-password"
+								name="credentials[password_confirmation]"
+							/>
+
+							<div
+								id="sign-up-error"
+								class="text-danger my-2 px-3 bg-warning rounded"
+								style="display: none"
+							>
+								All fields are *required...
+							</div>
+							<button
+								type="submit"
+								class="btn btn-danger mt-2 font-monospace text-center"
+								style="
+									height: 30px;
+									width: 90%;
+									align-self: center;
+									padding: 0px;
+									text-align: center;
+								"
+							>
+								sign up
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal  SIGN IN ------------------------------------------------->
+			<div
+				class="modal fade"
+				id="sign-in-modal"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="staticBackdropLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog" id="modal">
+					<div class="modal-content">
+						<div class="modal-header bg-secondary p-1">
+							<h4
+								class="modal-title text-white ms-2"
+								id="staticBackdropLabel"
+							>
+								Sign in
+							</h4>
+							<button
+								type="button"
+								class="btn-close btn-danger bg-danger me-1"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+
+						<form
+							id="sign-in-form"
+							class="
+								form-control
+								d-flex
+								flex-column
+								justify-content-center
+								align-items-center
+								mx-0
+								px-0
+							"
+						>
+							<input
+								type="email"
+								name="credentials[email]"
+								placeholder=" *Enter email"
+								class="form-control mx-1 my-2"
+								id="email"
+							/>
+
+							<input
+								type="password"
+								class="form-control mx-1 my-2"
+								id="password"
+								placeholder=" *Enter Password"
+								name="credentials[password]"
+							/>
+							<div
+								id="sign-in-error"
+								style="display: none"
+								class="text-danger my-2 mx-1 px-2 rounded bg-warning"
+							>
+								Please check credentials...
+							</div>
+							<button
+								type="submit"
+								class="btn btn-danger mt-2 font-monospace text-center"
+								style="
+									height: 30px;
+									width: 90%;
+									align-self: center;
+									padding: 0px;
+									text-align: center;
+								"
+							>
+								sign in
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ******************** GAME-BOX ***********************  -->
+		<!-- <div
+			id="game-container"
+			class="
+				container
+				d-flex
+				flex-column
+				justify-content-center
+				align-items-center
+			"
+		></div> -->
+	</body>
+</html>

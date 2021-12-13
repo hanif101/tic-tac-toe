@@ -1,0 +1,75 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+	background: rgb(214, 214, 214);
+}
+
+.col {
+	box-sizing: border-box;
+	border: 3px solid rgb(56, 53, 53);
+	height: 120px;
+	width: 120px;
+	line-height: 110px;
+	font-size: 110px;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+#game-box {
+	width: 365px;
+	margin-top: 20px;
+}
+
+#winner-box {
+	margin-top: 40px;
+	margin-bottom: 1px;
+}
+
+#winner-box h4 {
+	width: 365px;
+	text-align: center;
+	letter-spacing: 5px;
+	font-family: monospace;
+	line-height: 35px;
+}
+
+#sign-up-form input,
+#sign-in-form input {
+	width: 90%;
+	height: 25px;
+	padding: 0px;
+}
+#modal {
+	width: 250px;
+}
+
+#user-email-span-nav {
+	background-color: rgb(195, 211, 205);
+	padding: 0 5px;
+	text-align: center;
+	height: 25px;
+	border-radius: 3px;
+}
+
+#new-game .new-game {
+	width: 122px;
+	margin-top: 50px;
+	word-spacing: 5px;
+	letter-spacing: 2px;
+}
+
+#player .choosebox {
+	cursor: pointer;
+	background: #dbdbdb;
+	margin: 0 10px;
+}
+::-webkit-input-placeholder {
+	transition: 0.2s ease-in-out;
+	opacity: 0.7;
+	padding-left: 5px;
+	font-family: 'Roboto Mono', monospace;
+}
+
+:focus::-webkit-input-placeholder {
+	opacity: 0.2;
+}
